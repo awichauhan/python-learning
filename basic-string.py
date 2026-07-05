@@ -30,3 +30,4 @@ def myString():
 
 myString()
 
+# strings are immutable
