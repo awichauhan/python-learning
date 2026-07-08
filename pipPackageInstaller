@@ -1,0 +1,31 @@
+pip is Python’s package installer.
+Package means external code written by someone else.
+
+Example packages:
+    requests
+    pandas
+    numpy
+    flask
+    fastapi
+    scikit-learn
+
+Install packages:
+    pip install requests
+
+Then use it in python:
+
+    import requests
+
+    response = requests.get("https://example.com")
+    print(response.status_code)
+
+Check installed packages:
+    pip list
+
+Uninstall packages:
+
+    pip uninstall requests
+
+Better command in many systems:
+     python -m pip install requests
+

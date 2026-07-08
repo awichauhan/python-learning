@@ -1,0 +1,34 @@
+Run this part only when this file is executed directly, not when imported by another file.
+
+We have file:
+
+    # math_utils.py
+    def add(a, b):
+        return a + b
+    print("This file is running")
+
+Now another file imports it:
+
+    # app.py
+    import math_utils
+    print(math_utils.add(2, 3))
+
+ Output:
+
+     This file is running
+     5
+
+Problem: Even though we only wanted to use add(), the print() in math_utils.py also ran.
+
+So optimized code is:
+
+    # math_utils.py
+
+    def add(a, b):
+        return a + b
+
+    if __name__ == "__main__":
+        print("This file is running")
+
+Now if you import it, only the function is available. The testing/running code does not execute automatically.
+Run this part only when this file is executed directly, not when imported by another file.

@@ -1,0 +1,38 @@
+This file stores the packages needed for your project.
+requests==2.32.3
+pandas==2.2.2
+numpy==2.0.0
+
+Suppose you share your project on GitHub. Another person can clone your project and run:
+
+pip install -r requirements.txt
+
+Then all needed packages get installed.
+
+main.py              -> program starting point
+requirements.txt     -> packages needed
+README.md            -> project explanation
+src/                 -> actual project code
+tests/               -> test files
+.venv/               -> virtual environment
+
+
+The core idea:
+
+def main():
+    print("Program started")
+
+if __name__ == "__main__":
+    main()
+
+means: Define the program logic inside main(), and run it only when this file is executed directly.
+
+pip means: Install external Python packages.
+
+Virtual environment means: Keep project packages separate.
+
+requirements.txt means: List of packages required to run the project.
+
+Project folder structure means: Keep code organized instead of putting everything in one file.
+
+Reliable imports mean: Use proper folder-based imports and run from the project root.

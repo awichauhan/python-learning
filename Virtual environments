@@ -1,0 +1,21 @@
+A virtual environment is like a separate Python workspace for one project.
+Without virtual environments:
+
+Project A uses pandas 1.x
+Project B uses pandas 2.x
+
+Both packages may conflict if installed globally.
+
+With virtual environment:
+project_a/.venv  -> its own packages
+project_b/.venv  -> its own packages
+
+
+create virtual environment:
+- inside my project folder: python -m venv .venv
+- creates a folder: .venv/
+It contains a separate Python + installed packages for this project.
+
+activate virtual environment:
+bash: source .venv/bin/activate
+

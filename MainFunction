@@ -1,0 +1,22 @@
+Instead of writing all logic directly in the file, we usually create a main() function.
+
+Wrong way:
+    print("Program started")
+    name = input("Enter name: ")
+    print(f"Hello {name}")
+
+Better way:
+    def main():
+        print("Program started")
+        name = input("Enter name: ")
+        print(f"Hello {name}")
+
+    if __name__ == "__main__":
+        main()
+
+The file says:
+
+    if __name__ == "__main__":
+    main()
+
+Python does not force you to write main(), but in real projects it is a good habit.
