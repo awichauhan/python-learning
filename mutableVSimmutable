@@ -1,0 +1,13 @@
+mutable: The object can be changed after it is created.
+Ex:
+list
+dict
+set
+
+Immutable: The object cannot be changed after it is created.
+Ex:
+int
+float
+str
+tuple
+bool
