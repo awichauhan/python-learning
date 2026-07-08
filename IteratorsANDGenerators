@@ -1,0 +1,278 @@
+ 1. Iterable
+
+iterable is anything you can loop over using `for`.
+
+Examples:
+
+```python
+values = [10, 20, 30]
+
+for x in values:
+    print(x)
+```
+
+Lists, tuples, strings, dictionaries, sets, files, etc. are **iterables**.
+
+Simple meaning:
+
+> Iterable = something that can give values one by one.
+
+Examples:
+
+```python
+[1, 2, 3]        # list is iterable
+"hello"          # string is iterable
+{"a": 1, "b": 2} # dictionary is iterable
+```
+
+---
+
+2. Iterator
+
+An **iterator** is the object that actually remembers the current position while giving values one by one.
+
+Example:
+
+```python
+values = [10, 20, 30]
+
+it = iter(values)
+
+print(next(it))  # 10
+print(next(it))  # 20
+print(next(it))  # 30
+```
+
+Simple meaning:
+
+> Iterator = the object that produces the next value and remembers where it is.
+
+A list is **iterable**, but it is not itself the iterator.
+
+```python
+values = [10, 20, 30]
+
+it = iter(values)
+```
+
+Here:
+
+```python
+values  # iterable
+it      # iterator
+```
+
+---
+
+## 3. `iter()`
+
+`iter()` converts an iterable into an iterator.
+
+```python
+values = [10, 20, 30]
+
+it = iter(values)
+```
+
+Now `it` can be used with `next()`.
+
+Simple meaning:
+
+> `iter()` = “give me an iterator from this iterable.”
+
+---
+
+## 4. `next()`
+
+`next()` asks the iterator for the next value.
+
+```python
+values = [10, 20, 30]
+
+it = iter(values)
+
+print(next(it))  # 10
+print(next(it))  # 20
+print(next(it))  # 30
+```
+
+After all values are finished, `next()` gives an error:
+
+```python
+print(next(it))  # StopIteration error
+```
+
+Simple meaning:
+
+> `next()` = “give me the next item.”
+
+---
+
+## 5. Generator
+
+A **generator** is a special kind of iterator.
+
+It gives values **one at a time**, instead of creating all values at once in memory.
+
+Example:
+
+```python
+def numbers():
+    yield 1
+    yield 2
+    yield 3
+
+gen = numbers()
+
+print(next(gen))  # 1
+print(next(gen))  # 2
+print(next(gen))  # 3
+```
+
+Simple meaning:
+
+> Generator = an iterator created using `yield`.
+
+Generators are useful when you do not want to store everything in memory.
+
+Example:
+
+```python
+def count_up_to(n):
+    current = 1
+
+    while current <= n:
+        yield current
+        current += 1
+```
+
+Usage:
+
+```python
+for num in count_up_to(5):
+    print(num)
+```
+
+Output:
+
+```python
+1
+2
+3
+4
+5
+```
+
+---
+
+## 6. `yield`
+
+`yield` is similar to `return`, but with one major difference.
+
+`return` ends the function completely.
+
+```python
+def normal_func():
+    return 10
+```
+
+But `yield` pauses the function and remembers where it stopped.
+
+```python
+def generator_func():
+    yield 10
+    yield 20
+    yield 30
+```
+
+When you call:
+
+```python
+gen = generator_func()
+```
+
+The function does **not** run immediately.
+
+It runs when you call:
+
+```python
+next(gen)
+```
+
+Example:
+
+```python
+def my_gen():
+    print("Start")
+    yield 10
+
+    print("Middle")
+    yield 20
+
+    print("End")
+    yield 30
+
+gen = my_gen()
+
+print(next(gen))
+print(next(gen))
+print(next(gen))
+```
+
+Output:
+
+```python
+Start
+10
+Middle
+20
+End
+30
+```
+
+Simple meaning:
+
+> `yield` = pause function, give one value, and continue later from the same place.
+
+---
+
+## Mental model
+
+Imagine a playlist.
+
+```python
+songs = ["song1", "song2", "song3"]
+```
+
+`songs` is an **iterable**.
+
+When you create a player for it:
+
+```python
+player = iter(songs)
+```
+
+`player` is an **iterator**.
+
+When you press next:
+
+```python
+next(player)
+```
+
+You get the next song.
+
+A **generator** is like a playlist that creates the next song only when needed.
+
+---
+
+## One-line summary
+
+| Term      | Meaning                                             |
+| --------- | --------------------------------------------------- |
+| Iterable  | Something you can loop over                         |
+| Iterator  | Object that remembers position and gives next value |
+| `iter()`  | Creates iterator from iterable                      |
+| `next()`  | Gets next value from iterator                       |
+| Generator | Special iterator made using `yield`                 |
+| `yield`   | Pauses function and gives one value at a time       |
