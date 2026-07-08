@@ -1,0 +1,27 @@
+- Assignment does not create a copy
+a = [1, 2, 3]
+b = a
+
+- This does not create two lists. It creates two names pointing to the same list.
+
+- To create a new list, use .copy().
+
+a = [1, 2, 3]
+b = a.copy()
+
+b.append(4)
+
+print(a)
+print(b)
+
+- copy using slicing:
+
+a = [1, 2, 3]
+b = a[:]
+
+b.append(4)
+
+print(a)
+print(b)
+
+- Both .copy() and [:] create a shallow copy.
