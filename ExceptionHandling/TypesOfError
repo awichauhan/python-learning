@@ -1,0 +1,5 @@
+- compile time error: code will not run during compilation
+- logical error: runtime issue (non-syntactical issue)
+
+deciding critical function or line of codes
+
